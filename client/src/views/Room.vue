@@ -55,6 +55,10 @@ export default {
     }
   },
   sockets: {
+    getRooms (payload) {
+      console.log('DIA KE GET ROOM')
+      this.rooms = payload
+    },
     updatedRoom (payload) {
       console.log('masuk updated')
       this.rooms = payload

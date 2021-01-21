@@ -35,8 +35,8 @@ export default {
     goToRooms () {
       this.$socket.emit('datas', { playerName: this.playerName })
       localStorage.setItem('userName', this.playerName)
-      this.$router.push('/rooms/')
       this.playerName = ''
+      this.$router.push('/rooms/')
     }
   },
   sockets: {

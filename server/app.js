@@ -3,11 +3,13 @@ const server = require('http').createServer(app);
 const io = require('socket.io')(server);
 
 let rooms = []
+let playerName = ''
 
 io.on('connection', function (socket) {
   socket.on('datas', (data) => {
-    console.log(data)
-    socket.emit('get-rooms', rooms)
+    playerName = data.playerName
+    console.log(rooms, 'yup')
+    io.emit('getRooms', rooms)
   })
   socket.on('create-room', (data) => {
     console.log('halo serverku')
@@ -22,7 +24,8 @@ io.on('connection', function (socket) {
   socket.on('join-room', (data) => {
     socket.join(data['room-name'], function () {
       let roomIndex = rooms.findIndex((i) => i.name == data['room-name'])
-      console.log(socket.rooms, "INI DIA");
+      rooms[roomIndex].users.push(data.userName)
+      io.socket.in(data['room-name']).emit('room-detail',  rooms[roomIndex])
     })
   })
 })
