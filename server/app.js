@@ -25,7 +25,8 @@ io.on('connection', function (socket) {
     socket.join(data['room-name'], function () {
       let roomIndex = rooms.findIndex((i) => i.name == data['room-name'])
       rooms[roomIndex].users.push(data.userName)
-      io.socket.in(data['room-name']).emit('room-detail',  rooms[roomIndex])
+      console.log(rooms[roomIndex])
+      io.sockets.in(data['room-name']).emit('roomDetail',  rooms[roomIndex])
     })
   })
 })
