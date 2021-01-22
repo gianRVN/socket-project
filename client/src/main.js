@@ -9,7 +9,7 @@ Vue.use(BootstrapVue)
 Vue.use(IconsPlugin)
 Vue.use(new VueSocketIO({
   debug: true,
-  connection: 'http://localhost:3000',
+  connection: 'https://matching-type.herokuapp.com/',
   vuex: {
     store,
     actionPrefix: 'SOCKET_',
