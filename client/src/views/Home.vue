@@ -11,7 +11,7 @@
           <br><br>
           <input type="text" class="form-control" v-model="playerName" required>
           <br>
-          <button type="submit" class="btn btn-primary btn-lg" style="font-size: 20px;" @click.prevent='goToRooms'>Play Game</button>
+          <button type="submit" class="btn btn-primary btn-lg" style="font-size: 20px;" @click.prevent='addUser'>Join Room</button>
         </div>
       </form>
       </div>
@@ -29,13 +29,21 @@ export default {
     }
   },
   methods: {
-    goToRooms () {
-      this.$router.push('/room')
+    addUser () {
+      localStorage.playerName = this.playerName
+      console.log(this.users)
+      this.$socket.emit('addUser', {
+        id: this.users.length > 0 ? this.users[this.users.length - 1].id + 1 : 1,
+        name: this.playerName,
+        point: 0
+      })
+      this.playerName = ''
+      this.$router.push('/gameplay')
     }
   },
-  sockets: {
-    init (payload) {
-      console.log(payload)
+  computed: {
+    users () {
+      return this.$store.state.users
     }
   }
 }

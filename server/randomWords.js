@@ -2,7 +2,7 @@ const words = ["ABA","ABAD","ABADI","ABAH","ABAI","ABAL","ABANG","ABANGAN","ABDI
 
 module.exports = () => {
   return words[Math.floor(Math.random() * words.length)]
-  // let randomWords = words.sort(() => Math.random() - 0.5);
+  // return words.sort(() => Math.random() - 0.5);
   // let randomWordObject = []
 
   // randomWords.forEach((word, i) => {
