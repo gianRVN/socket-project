@@ -11,7 +11,6 @@ let word = '';
 let users = [];
 let startGame = false
 
-
 io.on('connection', function (socket) {
   socket.emit('init', {
     users, 
