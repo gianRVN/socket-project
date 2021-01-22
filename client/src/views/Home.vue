@@ -52,7 +52,8 @@ export default {
 <style scoped>
 .box-head{
   margin-top: 50px;
-  background-color: red
+  font-family: 'lato', sans-serif;
+  font-weight: 900;
 }
 .player-name{
   width: 50%;
@@ -61,4 +62,13 @@ export default {
   margin-top: 100px;
   padding: 20px;
 }
+
+.form-label {
+  font-family: 'lato', sans-serif;
+}
+
+.home {
+  background-image: url('https://hdwallpaperim.com/wp-content/uploads/2017/09/16/53338-Super_Mario-Mario_Bros.-Super_Mario_Bros..jpg');
+}
+
 </style>

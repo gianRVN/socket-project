@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="gameplay">
     <div v-if="startGame === true" class="card mt-5 ">
       <h1> {{ word }} </h1>
     </div>
@@ -31,12 +31,12 @@
           <button  class="btn btn-primary" type="submit"
           @click.prevent="submitWord(name)">submit</button>
     </form>
-    <button class="btn btn-primary"
+    <button class="btn btn-primary mx-5"
     v-else
     @click="setGame">Start Game</button>
       <div>
 
-        <b-modal ref="my-modal" hide-footer title="Using Component Methods">
+        <b-modal ref="my-modal" hide-footer title="Game Over">
           <div class="d-block text-center">
             <h3>{{winner}}</h3>
           </div>
@@ -120,4 +120,10 @@ export default {
   align-content: center;
   margin: auto;
 }
+
+.text-center h3 {
+  font-family: 'lato', sans-serif;
+  font-weight: 900;
+}
+
 </style>
