@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import router from '../router/index'
+// import router from '../router/index'
 
 Vue.use(Vuex)
 
@@ -33,7 +33,7 @@ export default new Vuex.Store({
       state.users = []
       state.points = 0
       state.startGame = false
-      router.push('/')
+      // router.push('/')
     }
   },
   actions: {
