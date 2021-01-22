@@ -1,4 +1,8 @@
 const app = require('express')();
+const cors = require('cors')
+const port = process.env.PORT || 3000
+app.use(cors())
+
 const server = require('http').createServer(app);
 const io = require('socket.io')(server);
 const randomWords = require('./randomWords')
@@ -6,6 +10,7 @@ const randomWords = require('./randomWords')
 let word = '';
 let users = [];
 let startGame = false
+
 
 io.on('connection', function (socket) {
   socket.emit('init', {
@@ -100,6 +105,6 @@ io.on('connection', function (socket) {
   // })
 })
 
-server.listen(3000, () => {
-  console.log('connected on port' + 3000)
+server.listen(port, () => {
+  console.log('connected on port' + port)
 })
